@@ -2,18 +2,17 @@ import java.util.Scanner;
 
 public class TicTacToeGame {
 	public static char[] board = new char[] {'0','0','0','0','0','0','0','0','0','0'};
-	public static String userChar;
-	
+	public static char userChar;
+	static Scanner sc = new Scanner(System.in);
 	public static void selection()
 	{
 		System.out.println("Enter X or O to select your character");
-		Scanner sc = new Scanner(System.in);
-		userChar = sc.next();
-		if(userChar.equals("X"))
+		userChar = sc.next().charAt(0);
+		if(userChar =='X')
 		{
 			System.out.println("Your character is X");
 		}
-		else if(userChar.equals("O"))
+		else if(userChar =='O')
 		{
 			System.out.println("Your character is O");
 		}
@@ -36,12 +35,26 @@ public class TicTacToeGame {
 			}
 		}
 	}
-	
+	public static void makeMove()
+	{
+		System.out.println("\nEnter a your move (the value should be between 1 and 9)");
+		byte move = sc.nextByte();
+		if(board[move] == '0')
+		{
+			board[move-1] = (char)userChar;
+		}
+		else
+		{
+			System.out.println("The place has been already assigned please make another move");
+		}
+		showBoard();
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("---Welcom to TicTacToeGame!!! -----");
 		selection();
 		showBoard();
+		makeMove();
 	}
 
 }
