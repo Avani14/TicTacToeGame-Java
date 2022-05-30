@@ -62,11 +62,25 @@ public class TicTacToeGame {
 			}
 		}
 	}
-	
+	public static void toss()
+	{
+		System.out.println("Enter 1 to choose tails and 0 to choose heads");
+		byte userChoice = sc.nextByte();
+		byte randomToss = (byte) ((Math.random()*10)%2);
+		if(randomToss == userChoice)
+		{
+			System.out.println("You Win!!!");
+			selection();
+		}
+		else
+		{
+			System.out.println("You loose!!");
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("---Welcom to TicTacToeGame!!! -----");
-		selection();
+		toss();
 		showBoard();
 		makeMove();
 	}
