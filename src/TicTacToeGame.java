@@ -38,6 +38,8 @@ public class TicTacToeGame {
 	public static void makeMove()
 	{
 		System.out.println("\nEnter a your move (the value should be between 1 and 9)");
+		desiredSpaces();
+		System.out.println();
 		byte move = sc.nextByte();
 		if(board[move] == '0')
 		{
@@ -49,6 +51,18 @@ public class TicTacToeGame {
 		}
 		showBoard();
 	}
+	
+	public static void desiredSpaces()
+	{
+		System.out.println("Places available are");
+		for(int i = 0;i<board.length-1;i++)
+		{
+			if(board[i] == '0') {
+				System.out.print((i+1)+" ");
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("---Welcom to TicTacToeGame!!! -----");
